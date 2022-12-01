@@ -5,11 +5,153 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>我的主页</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        body {
+            background: url(img/background01.png);
+            background-size: 1200px 750px;
+            background-repeat: no-repeat;
+            background-position: top right;
+            background-attachment: fixed;
+            padding-right: 30%;
+            text-align: center;
+            color: #7c6fa9;
+            user-select: none;
+            /* transform: scale(1.2); */
+        }
+
+        .title {
+            margin: auto;
+        }
+
+        .title h1 {
+            margin-top: 100px;
+            margin-bottom: 30px;
+            font-size: 80px;
+            color: #7c6fa9;
+        }
+
+        .nav {
+            width: 620px;
+            margin: auto;
+            overflow: hidden;
+        }
+
+        .nav li {
+            display: inline-block;
+            padding: 20px;
+            font-size: larger;
+            margin: 0 -1px;
+            border-bottom: 2px dotted #7c6fa9;
+        }
+
+        .nav .current {
+            background-color: #dcb8db;
+            border-radius: 30px 30px 0 0;
+        }
+
+        /* .nav li:hover {
+            background-color: #dcb8db;
+            border-radius: 30px 30px 0 0;
+        } */
+
+        .choose {
+            margin: auto;
+        }
+
+        .item {
+            display: none;
+            width: 560px;
+            height: 300px;
+            margin: auto;
+            background-color: #dcb8db;
+            border-radius: 8px 8px 20px 20px;
+            text-align: center;
+            padding: 30px 30px;
+        }
+
+        .float {
+            width: 150px;
+            height: 300px;
+            background-image: url(img/fubiao.PNG);
+            background-size: 150px 150px;
+            background-repeat: no-repeat;
+            background-position: top;
+            padding-top: 150px;
+            position: fixed;
+            top: 30%;
+        }
+    </style>
 </head>
 
 <body>
-    6
+    <div class="title">
+        <h1>·欢迎访问icon的主页·</h1>
+        <ul class="nav">
+            <li>我的信息</li>
+            <li class="current">我的目录</li>
+            <li>我的web</li>
+            <li>我的考试</li>
+            <li>我的图库</li>
+        </ul>
+        <div class="choose">
+            <div class="item">
+                <h1>·禁止偷窥！</h1>
+            </div>
+            <div class="item" style="display:block;">
+                暂无目录···
+            </div>
+            <div class="item">
+                <h3>什么都没做欸···</h3>
+            </div>
+            <div class="item">
+                暂无答案··
+            </div>
+            <div class="item">
+                暂无图库··
+            </div>
+
+        </div>
+    </div>
+    <div class="float">
+        <img src="qrCode.png" alt="" width="150" height="150">
+    </div>
 </body>
+<script>
+    var list = document.querySelector('.nav');
+    var lis = list.querySelectorAll('li');
+    var items = document.querySelectorAll('.item');
+    for (var i = 0; i < lis.length; i++) {
+        lis[i].setAttribute('index', i)
+        lis[i].onclick = function () {
+            for (var i = 0; i < lis.length; i++) {
+                lis[i].className = '';
+            }
+            //只留下当前
+            this.className = 'current';
+            // 下面的模块显示
+            var index = this.getAttribute('index');
+            console.log(index);
+            //只留下当前底部框
+            for (var i = 0; i < items.length; i++) {
+                items[i].style.display = 'none';
+            }
+            items[index].style.display = 'block';
+        }
+    }
+</script>
 
 </html>
