@@ -1,0 +1,88 @@
+@font-face {
+  font-family: "iconfont";
+  /* Project id 3792738 */
+  src: url('iconfont.woff2?t=1669367431958') format('woff2'),
+    url('iconfont.woff?t=1669367431958') format('woff'),
+    url('iconfont.ttf?t=1669367431958') format('truetype');
+}
+
+.iconfont {
+  font-family: "iconfont" !important;
+  font-size: 16px;
+  font-style: normal;
+  color: #ff63ab;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-shouye:before {
+  content: "\e612";
+}
+
+.icon-shouye1:before {
+  content: "\e615";
+}
+
+.icon-shouye2:before {
+  content: "\e61a";
+}
+
+.icon-shouye3:before {
+  content: "\e61b";
+}
+
+.icon-shouye4:before {
+  content: "\e61c";
+}
+
+.icon-shouye5:before {
+  content: "\e620";
+}
+
+.icon-shouye6:before {
+  content: "\e622";
+}
+
+.icon-shouye7:before {
+  content: "\e625";
+}
+
+.icon-shouye8:before {
+  content: "\e626";
+}
+
+.icon-shouye9:before {
+  content: "\e627";
+}
+
+.icon-shouye10:before {
+  content: "\e629";
+}
+
+.icon-shouye11:before {
+  content: "\e63c";
+}
+
+.icon-shouye12:before {
+  content: "\e643";
+}
+
+.icon-icon:before {
+  content: "\e68b";
+}
+
+.icon-icon1:before {
+  content: "\e68d";
+}
+
+.icon-icon2:before {
+  content: "\e698";
+}
+
+.icon-icon3:before {
+  content: "\e699";
+}
+
+.icon-icon4:before {
+  content: "\e6a0";
+}

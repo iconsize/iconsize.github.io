@@ -1,0 +1,220 @@
+/*     <div class="title">
+        <!-- 顶部导航栏 -->
+        <div class="tright">
+            <ul>
+                <li class="login">亲爱的${username}，您好</li>
+                <li class="my">
+                    <div>—我的—</div>
+                    <div class="mydetail">
+                        <a href="#">我的订单</a><br>
+                        <a href="#">我的购物车</a><br>
+                        <a href="#">我的信息</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="top">
+        <!-- 中间的标题栏 -->
+        <h1>甜心花圃</h1>
+        <span>最有价值之物，给最珍爱之人</span>
+    </div>
+ */
+* {
+    margin: 0;
+    padding: 0;
+}
+
+ul {
+    list-style: none;
+}
+
+
+a {
+    text-decoration: none;
+    color: #f7178b;
+}
+
+body {
+    background-color: #ffd0d0;
+    text-align: center;
+    user-select: none;
+    /* 禁止网页元素选中 */
+}
+
+.icon {
+    vertical-align: -1em;
+    fill: currentColor;
+    overflow: hidden;
+    color: #ff63ab;
+    border-radius: 20px;
+}
+
+.title {
+    background-color: #fdbacb;
+    height: 45px;
+    margin-bottom: 20px;
+}
+
+.title .tright {
+    float: right;
+    line-height: 43px;
+    font-weight: 550;
+    margin-right: 50px;
+    text-align: center;
+}
+
+.title .tright li {
+    display: inline-block;
+    padding: 0 15px;
+    color: #f7178b;
+    border-top: 2px solid transparent;
+}
+
+.title .tright li:hover {
+    border-top: 2px solid #f7178b;
+    height: 43px;
+    line-height: 43px;
+}
+
+.title .tright li a {
+    color: #f7178b;
+}
+
+.title .tright li a:hover {
+    color: #cc0062;
+}
+
+.my {
+    width: 80px;
+    text-align: center;
+}
+
+.tright .my div {
+    margin-left: 0px;
+    text-align: center;
+}
+
+
+.mydetail {
+    width: 84px;
+    display: none;
+    font-weight: normal;
+    line-height: 30px;
+    padding: 10px;
+    right: 50px;
+    position: absolute;
+    background-color: #fdbacb;
+
+
+}
+
+.title .my:hover .mydetail {
+    display: block;
+}
+
+.title .my:hover .title .tright .my p {
+    background-color: #ffd0d0;
+}
+
+.top {
+    width: 60%;
+    height: 60px;
+    margin: auto;
+    background-image: url(img/logo.png);
+    background-size: 60px 60px;
+    background-repeat: no-repeat;
+    margin-bottom: 20px;
+    border-bottom: 3px dotted rgb(255, 52, 86);
+}
+
+.top h1 {
+    float: left;
+    text-align: left;
+    padding-left: 60px;
+    line-height: 60px;
+    color: rgb(239, 91, 144);
+}
+
+.top span {
+    float: right;
+    margin-top: 40px;
+    color: rgb(238, 144, 160);
+}
+
+.buttons {
+    position: fixed;
+    right: 0px;
+    top: 30%;
+    bottom: 40%;
+    line-height: 50px;
+}
+
+.smallicon {
+    width: 29px;
+    height: 36px;
+    vertical-align: -0.55em;
+    fill: currentColor;
+    overflow: hidden;
+    /* color: #cc0062; */
+    /* background-color: #fdbacb; */
+    border-radius: 20px;
+}
+
+.iconbtn {
+    width: 55px;
+    height: 55px;
+    vertical-align: -1em;
+    fill: currentColor;
+    overflow: hidden;
+    color: #ff63ab;
+    background-color: #fdbacb;
+    border-radius: 20px;
+}
+
+.flist {
+    width: 1000px;
+    margin: auto;
+    text-align: center;
+}
+
+.btn {
+    background-image: linear-gradient(180deg, #F5A9DE 20%, #fc9cb945 100%);
+    text-align: center;
+    font-size: large;
+    font-weight: 700;
+    width: 120px;
+    height: 40px;
+    border: 0;
+    color: #f7178b;
+    border-radius: 30px;
+    box-shadow: 6px 6px 5px -4px #bd312469;
+}
+
+.btn:hover {
+    font-size: larger;
+
+}
+
+.btn:active {
+    font-size: large;
+    box-shadow: 0px 10px 5px -4px #bd312469 inset;
+}
+
+.flower {
+    color: #f7178b;
+    margin: auto;
+}
+
+
+.flower p {
+    text-align: left;
+    text-indent: 2em;
+}
+
+input:-internal-autofill-previewed,
+input:-internal-autofill-selected {
+    -webkit-text-fill-color: #808080;
+    transition: background-color 1000s ease-out 0.5s;
+}

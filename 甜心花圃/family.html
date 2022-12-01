@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="title.css">
+    <script src="font/iconfont.js"></script>
+</head>
+
+<body>
+    <div class="title">
+        <!-- 顶部导航栏 -->
+        <div class="tright">
+            <ul>
+                <li class="login">亲爱的${username}，您好</li>
+                <li class="my">
+                    <div>—我的—</div>
+                    <div class="mydetail">
+                        <a href="#">我的订单</a><br>
+                        <a href="#">我的购物车</a><br>
+                        <a href="#">我的信息</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="top">
+        <!-- 中间的标题栏 -->
+        <h1>甜心花圃</h1>
+        <span>最有价值之物，给最珍爱之人</span>
+    </div>
+
+    <div class="flist">
+        <table class="flower" align="center" border="0">
+            <thead>
+                <th>花朵</th>
+                <th>图片</th>
+                <th>花语</th>
+                <th>价格</th>
+                <th>操作</th>
+            </thead>
+            <tbody>
+                <c:forEach var="Flower" items="${allFlower}" begin="6" end="8">
+                    <tr>
+                        <td> ${Flower.flowerName}</button></td>
+                        <td class="img">
+                            <img src="${Flower.flowerImg}" width="200" height="200">
+                        </td>
+                        <td class="text">
+                            <p>${Flower.flowerDetail}</p>
+                        </td>
+                        <td>
+                            <svg class="smallicon" aria-hidden="true">
+                                <use xlink:href="#icon-shouye7"></use>
+                            </svg>
+                            ${Flower.flowerPrice}
+                        </td>
+                        <td>
+                            <a href=" "><button class="btn">加入购物车</button></a>
+                        </td>
+                    </tr>
+                </c:forEach>
+            </tbody>
+
+        </table>
+    </div>
+    <div class="buttons">
+        <!-- 右侧边按钮 -->
+        <a href="#">
+            <svg class="iconbtn" aria-hidden="true">
+                <use xlink:href="#icon-shouye"></use>
+            </svg>
+        </a><br>
+        <a href="#">
+            <svg class="iconbtn" aria-hidden="true">
+                <use xlink:href="#icon-shouye1"></use>
+            </svg>
+        </a><br>
+        <a href="">
+            <svg class="iconbtn" aria-hidden="true">
+                <use xlink:href="#icon-shouye3"></use>
+            </svg>
+        </a>
+        <br>
+        <a href="#">
+            <svg class="iconbtn" aria-hidden="true">
+                <use xlink:href="#icon-shouye8"></use>
+            </svg>
+        </a><br>
+        <!-- <a href="#">
+            <svg class="iconbtn" aria-hidden="true">
+                <use xlink:href="#icon-shouye2"></use>
+            </svg>
+        </a>
+        <br> -->
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>···登录···</title>
+    <link rel="stylesheet" href="title.css">
+    <script src="font/iconfont.js"></script>
+    <script src="jquery.min.js"></script>
+    <!-- <style>
+        .one {
+
+            width: 80%;
+            height: 500px;
+            border-radius: 30px;
+            background-color: #e3959d54;
+            Margin: auto;
+        }
+
+        table {
+            width: 100%;
+            text-align: center;
+            color: #e3959d;
+
+        }
+
+        thead {
+            font-size: large;
+            color: #9e2f3a;
+            background-color: #e3959d;
+            height: 45px;
+            border-radius: 30px 30px 0 0;
+        }
+
+        .btnn {
+            border: 0;
+            font-size: larger;
+            width: 60px;
+            height: 30px;
+            background-color: pink;
+            border-radius: 80px;
+            box-shadow: 2px 2px 2px rgb(249, 143, 150);
+            background-image: radial-gradient(30px at center center, rgb(243, 79, 98), rgba(255, 255, 255, 0));
+        }
+
+        .update {
+            position: relative;
+        }
+
+        .update .fom {
+            /* background-color: #e3959d; */
+            padding: 0 10px;
+            display: none;
+            left: 0;
+            right: 0;
+            bottom: -50%;
+            position: absolute;
+        }
+
+        .get {
+            width: 57px;
+
+        }
+
+        .update:hover .fom {
+            display: block;
+        }
+
+        .down {
+            text-align: right;
+            width: 80%;
+            margin: 20px 20px;
+            vertical-align: middle;
+
+        }
+
+        .pay {
+            line-height: 40px;
+            margin-right: 30px;
+            color: rgb(243, 79, 98);
+        }
+
+        .go {
+            background-image: linear-gradient(180deg, #ff9090 20%, #ef94af00 100%);
+            text-align: center;
+            font-size: larger;
+            width: 100px;
+            height: 40px;
+            border: 0;
+            border-radius: 10px;
+            box-shadow: 2px 3px 3px #BD3124;
+        }
+    </style> -->
+    <style>
+        .cart-body {
+            width: 70%;
+            height: 500px;
+            background-color: #fdbacb;
+            margin: auto;
+            border-radius: 60px;
+        }
+
+        .cart-head {
+            margin: auto;
+            height: 40px;
+            background-color: #ff63ab;
+            border-radius: 60px 60px 0 0;
+            font-size: larger;
+            overflow: hidden;
+        }
+
+        .cart-head,
+        .cart-ilist {
+            margin: auto;
+            width: 100%;
+            padding: 0 60px;
+            overflow: hidden;
+        }
+
+        .table {
+            height: 450px;
+        }
+
+        .h-checkbox {
+            width: 60px;
+        }
+
+        .h-goods {
+            width: 180px;
+            text-align: center;
+        }
+
+        .h-price,
+        .h-sum,
+        .h-num {
+            width: 110px;
+            text-align: center;
+        }
+
+        .h-action {
+            width: 60px;
+        }
+
+
+        .item {
+            margin: auto;
+            padding: 0 60px;
+            overflow: hidden;
+            line-height: 40px;
+        }
+
+        .cart-head div,
+        .item div {
+            float: left;
+            margin: 10px 0;
+            padding: 0 20px;
+        }
+
+
+        .checkbox {
+            width: 60px;
+        }
+
+        .goods {
+            width: 180px;
+            text-align: center;
+        }
+
+        .price,
+        .num,
+        .sum {
+            width: 110px;
+            height: 40px;
+            text-align: center;
+
+        }
+
+        .num {
+            line-height: 16px;
+        }
+
+        .action {
+            width: 60px;
+        }
+
+        .q-form {
+            margin: 0 0;
+        }
+
+        .num .itxt {
+            float: left;
+            width: 32px;
+            border: 2px solid #f7178b;
+            height: 18px;
+            text-align: center;
+            font-size: 12px;
+            margin-left: -2px;
+            margin-right: -2px;
+            outline: none;
+        }
+
+        .num .increment,
+        .num .decrement {
+            float: left;
+            width: 10px;
+            height: 18px;
+            border: 2px solid #f7178b;
+            text-align: center;
+        }
+
+        .num .increment {
+            border-radius: 0 10px 10px 0;
+            padding-right: 3px;
+        }
+
+        .num .decrement {
+            border-radius: 10px 0 0 10px;
+            padding-left: 3px;
+        }
+
+        .cart-foot {
+            margin-top: -50px;
+            height: 50px;
+            background-color: #ff63ab;
+            border-radius: 0 0 60px 60px;
+            z-index: 9999;
+            line-height: 50px;
+        }
+
+        .fleft {
+            float: left;
+            margin-left: 60px;
+        }
+
+        .operation {
+            float: left;
+        }
+
+        .f-checkbox {
+            width: 60px;
+            float: left;
+        }
+
+        .fright {
+            float: right;
+            right: 0;
+            margin-right: 60px;
+        }
+
+        .amount-sum,
+        .price-sum,
+        .btn-area {
+            float: left;
+            padding: 0 20px;
+        }
+    </style>
+</head>
+
+<body onload="loading()">
+    <div class="title">
+        <!-- 顶部导航栏 -->
+        <div class="tright">
+            <ul>
+                <li class="login">亲爱的<ins>${username}</ins>，您好</li>
+                <li class="my">
+                    <div>—我的—</div>
+                    <div class="mydetail">
+                        <a href="#">我的订单</a><br>
+                        <a href="#">我的购物车</a><br>
+                        <a href="#">我的信息</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="top">
+        <!-- 中间的标题栏 -->
+        <h1>甜心花圃</h1>
+        <span><em><strong>·您的购物车</strong></em></span>
+    </div>
+
+    <!-- <div class="cart">
+        <table class="cartlist" align="center">
+            <thead>
+                &nbsp;<br>
+                <th class="checkbox"><input type="checkbox" checked class="checkall">全选</th>
+                <th class="goods">商品</th>
+                <th class="price">单价</th>
+                <th class="num">数量</th>
+                <th class="sum">小计</th>
+                <th class="action">操作</th>
+            </thead>
+            <tbody>
+                <c:forEach var="flower" items="${flowercart}">
+                    <tr>
+                        <td><input type="checkbox" checked class="checkbox"></td>
+                        <td>${flower.flowerName}</td>
+                        <td>${flower.flowerLprice}</td>
+                        <td><a href="javascript:;" class="jian">-</a>
+                            ${flower.flowerCounts}<a href="javascript:;" class="jia">+</a>
+                        </td>
+                        <td>
+                            <div class="fsum">￥99.00</div>
+                        </td>
+                        <td>
+                            <div class="action">删除</div>
+                        </td>
+                    </tr>
+                </c:forEach>
+            </tbody>
+        </table>
+        <div class="cart-floatbar">
+            <div class="select-all">
+                <input type="checkbox" name="" id="" class="checkall">全选
+            </div>
+            <div class="operation">
+                <a href="javascript:;" class="remove-batch"> 删除选中的商品</a>
+                <a href="javascript:;" class="clear-all">清理购物车</a>
+            </div>
+            <div class="toolbar-right">
+                <div class="amount-sum">已经选<em>1</em>件商品</div>
+                <div class="price-sum">总价： <em>￥12.60</em></div>
+                <div class="btn-area">去结算</div>
+            </div>
+        </div>
+    </div> -->
+    <div class="cart-body">
+        <table class="cart-head">
+            <tr>
+                <td>
+                    <div class="h-checkbox">
+                        <input type="checkbox" class="checkall" checked> 全选
+                    </div>
+                </td>
+                <td>
+                    <div class="h-goods">商品</div>
+                </td>
+                <td>
+                    <div class="h-price">单价</div>
+                </td>
+                <td>
+                    <div class="h-num">数量</div>
+                </td>
+                <td>
+                    <div class="h-sum">小计</div>
+                </td>
+                <td>
+                    <div class="h-action">操作</div>
+                </td>
+            </tr>
+        </table>
+        <div class="table">
+            <table align="center" class="cart-ilist">
+                <c:forEach var="c" items="${cartList}">
+                    <tr class="item">
+                        <td>
+                            <div class="checkbox">
+                                <input type="checkbox" class="check" checked>
+                            </div>
+                        </td>
+                        <td>
+                            <!-- <div class="goods" name="goods">${c.flowerName}</div> -->
+                            <div class="goods" name="goods">玫瑰花</div>
+                        </td>
+                        <td>
+                            <!-- <div class="price">${c.price}</div> -->
+                            <div class="price">22</div>
+                        </td>
+                        <td>
+                            <div class="num">
+                                <div class="q-form">
+                                    <a href="javascript:;" class="decrement">-</a>
+                                    <!-- <input type="text" class="itxt" value="${c.counts}" name="number"> -->
+                                    <input type="text" class="itxt" value="1" name="number">
+                                    <a href="javascript:;" class="increment">+</a>
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="sum" name="sum">99</div>
+                        </td>
+                        <td>
+                            <div class="action"><a
+                                    href="${pageContext.request.contextPath}/deleteFlowerCart?flowerName=${c.flowerName}">删除</a>
+                            </div>
+                        </td>
+                    </tr>
+                </c:forEach>
+            </table>
+        </div>
+        <div class="cart-foot">
+            <div class="fleft">
+                <div class="f-checkbox">
+                    <input type="checkbox" name="" id="" class="checkall" checked>全选
+                </div>
+                <div class="operation">
+                    <!-- <a href="javascript:;" class="remove-batch">删除选中商品</a> -->
+                    <!-- <a href="javascript:;" class="clear-all">清空购物车</a> -->
+                </div>
+            </div>
+            <div class="fright">
+                <div class="amount-sum">已经选择 <em>1</em> 件商品</div>
+                <div class="price-sum">总金额：<em>99</em> 元</div>
+                <div class="btn-area">去结算</div>
+            </div>
+        </div>
+    </div>
+
+
+
+</body>
+<script>
+
+    $(function () {
+        $(".checkall").change(function () {
+            $(".check, .checkall").prop("checked", $(this).prop("checked"));
+            if ($(this).is(':checked') == false) {
+                $(".price-sum em").text(0);
+                $(".amount-sum em").text(0);
+            } else {
+                getSum();
+            }
+
+        });
+        $(".checkbox").change(function () {
+            //console.log($("this").prop("checked"));
+            //console.log($(this).is(':checked'));
+            if ($(".check:checked").length === $(".check").length) {
+                $(".checkall").prop("checked", true);
+            } else {
+                $(".checkall").prop("checked", false);
+            }
+        });
+        $(".increment").click(function () {
+            var n = $(this).siblings(".itxt").val();
+            //console.log(n);
+            n++;
+            $(this).siblings(".itxt").val(n);
+            var p = $(this).parent().parent().parent().siblings().children(".price").html();
+            //console.log($(this).parent().parent().parent().siblings().children(".price").text());
+            $(this).parent().parent().parent().siblings().children(".sum").html(p * n);
+            // getSum();
+            axios.get("http://localhost:8080/orderManager?").then(function (res) {
+                console.log(res)
+            })
+            if ($(this).parents("td").siblings().children().children(".check").is(':checked') == true) {
+                getSum();
+            }
+        });
+        $(".decrement").click(function () {
+            var n = $(this).siblings(".itxt").val();
+            if (n == 1) {
+                return false;
+            }
+            //console.log(n);
+            n--;
+            $(this).siblings(".itxt").val(n);
+            var p = $(this).parent().parent().parent().siblings().children(".price").html();
+            //console.log($(this).parent().parent().parent().siblings().children(".price").text());
+            $(this).parent().parent().parent().siblings().children(".sum").html(p * n);
+            // getSum();
+            if ($(this).parents("td").siblings().children().children(".check").is(':checked') == true) {
+                getSum();
+            }
+        });
+        $(".itxt").change(function () {
+            var n = $(this).val();
+            var p = $(this).parent().parent().parent().siblings().children(".price").html();
+            $(this).parent().parent().parent().siblings().children(".sum").html(p * n);
+            // getSum();
+        });
+        function getSum() {
+            var count = 0;
+            var money = 0;
+            $(".itxt").each(function (i, ele) {
+                count += parseInt($(ele).val());
+            });
+            $(".amount-sum em").text(count);
+            $(".sum").each(function (i, ele) {
+                money += parseInt($(ele).text());
+            });
+            $(".price-sum em").text(money);
+            getDetail();
+        }
+        $(".check").change(function () {
+            if ($(this).is(':checked') == false) {
+                var money1 = $(this).parent().parent().siblings().children(".sum").text();
+                var sum = $(".price-sum em").text();
+                sum -= money1;
+                var num1 = $(this).parent().parent().siblings().children().children().children(".itxt").val();
+                var num = parseInt($(".amount-sum em").text());
+                // console.log(num1, num)
+                num -= num1;
+                // console.log(num1, num);
+                $(".amount-sum em").text(num);
+                $(".price-sum em").text(sum);
+            } else {
+                var money1 = $(this).parent().parent().siblings().children(".sum").text();
+                var sum = parseInt($(".price-sum em").text());
+                sum += parseInt(money1);
+                $(".price-sum em").text(sum);
+                var num1 = $(this).parent().parent().siblings().children().children().children(".itxt").val();
+                var num = parseInt($(".amount-sum em").text());
+                num += parseInt(num1);
+                $(".amount-sum em").text(num);
+            }
+            getDetail();
+        });
+        window.onload = loading()
+
+    })
+    function loading() {
+        getSum();
+        getDetail();
+        function getSum() {
+            var count = 0;
+            var money = 0;
+            $(".itxt").each(function (i, ele) {
+                count += parseInt($(ele).val());
+            });
+            $(".amount-sum em").text(count);
+            $(".sum").each(function (i, ele) {
+                money += parseInt($(ele).text());
+            });
+            $(".price-sum em").text(money);
+            getDetail();
+        };
+    }
+    function getDetail() {
+        var str = "";
+        //遍历name为items所有
+        $(".item").each(function () {
+            if ($(this).children().children().children(".check").is(":checked") == true) {
+                str += $(this).children().children(".goods").text() + "*" + $(this).children().children().children().children(".itxt").val() + ",";
+            }
+        });
+        //去掉最后一个逗号(如果不需要去掉，就不用写)
+        if (str.length > 0) {
+            str = str.substr(0, str.length - 1);
+        }
+        console.log(str);
+        return str;
+    }
+    $(".btn-area").click(function () {
+        var name = $(".login ins").text();
+        var detail = getDetail();
+        var num = $(".aomunt-sum em").text();
+        var pay = $(".price-sum em").text()
+        console.log(name, detail, num, pay)
+        var ajax = { name: name, detail: detail, num: num, pay: pay }
+        window.location.href = "/addOrder?name=" + name + "";
+        // $.ajax({
+        //     url: "/addOrder?name&detail&num",
+
+        //     type: "POST",
+        //     success: function (data) {
+        //         console.log(data);
+        //     }, error: function (data) {
+        //         console.log(data);
+        //     }
+        // })
+        // axios.get("http://localhost:8080/orderManager?").then(function (res) {
+        //     console.log(res)
+        // })
+
+    })
+</script>
+
+</html>

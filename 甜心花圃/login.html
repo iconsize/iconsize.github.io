@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>···登录···</title>
+    <link rel="stylesheet" href="title.css">
+    <script src="font/iconfont.js"></script>
+    <style>
+        .title {
+            margin-bottom: 100px;
+        }
+
+        body {
+            color: #cc0062;
+        }
+
+
+
+        .middle {
+            margin: auto;
+            width: 800px;
+            background-color: #fdbacb;
+            border-radius: 20px;
+        }
+
+        .tab_list {
+            overflow: hidden;
+        }
+
+
+
+        .tab_list li {
+            width: 400px;
+            float: left;
+            line-height: 40px;
+            border-radius: 20px 20px 0 0;
+            border-bottom: 4px solid #ff63ab;
+        }
+
+        .tab_list .current {
+            background-color: #ff63ab;
+        }
+
+        .tab_con .item {
+            display: none;
+            width: 800px;
+            /* height: 450px; */
+        }
+
+        .admin {
+
+            text-align: center;
+            margin: auto;
+            margin-top: 20px;
+            line-height: 40px;
+            font-size: large;
+            border-spacing: 0 50px;
+        }
+
+        .user {
+
+            text-align: center;
+            margin: auto;
+            margin-top: 20px;
+            line-height: 40px;
+            font-size: large;
+            border-spacing: 0 30px;
+            margin-bottom: 50px;
+        }
+
+        input {
+            font-size: large;
+            font-weight: normal;
+            width: 300px;
+            height: 40px;
+            border-radius: 20px;
+            border: 0;
+            padding: 0 20px;
+            background-color: #ffd0d0;
+            outline: none;
+        }
+
+
+
+        .tips {
+            width: 150px;
+            font-size: small;
+        }
+
+        .loginbtn {
+            border: 0;
+            font-size: larger;
+            width: 160px;
+            height: 50px;
+            background-color: pink;
+            border-radius: 80px;
+            box-shadow: 2px 2px 2px rgb(249, 143, 150);
+            background-image: radial-gradient(120px at center center, rgb(247, 103, 149), rgba(255, 255, 255, 0));
+        }
+
+        .register {
+            border: 0;
+            font-size: large;
+            width: 80px;
+            height: 30px;
+            background-color: pink;
+            border-radius: 80px;
+            box-shadow: 2px 2px 2px rgb(249, 143, 150);
+            background-image: radial-gradient(50px at center center, rgb(247, 103, 149), rgba(255, 255, 255, 0));
+        }
+    </style>
+</head>
+
+<body>
+    <div class="title">
+        <!-- 顶部导航栏 -->
+        <div class="tright">
+            <ul>
+                <li class="login">您好，请<a href="#">登录</a></li>
+                <li><a href="#">注册</a></li>
+                <li class="my">
+                    <div>—我的—</div>
+                    <div class="mydetail">
+                        <a href="#">我的订单</a><br>
+                        <a href="#">我的购物车</a><br>
+                        <a href="#">我的信息</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="middle">
+        <!-- 中间登录界面 -->
+        <div class="tab_list">
+            <ul>
+                <li class="current">用户登录</li>
+                <li>管理员登录</li>
+            </ul>
+        </div>
+        <div class="tab_con">
+            <div class="item" style="display:block;">
+                <form action="#" method="post">
+                    <table class="user" align="center" border="0">
+                        <tr>
+                            <td class="name" width="200px">
+                                <svg class="smallicon" aria-hidden="true">
+                                    <use xlink:href="#icon-shouye1"></use>
+                                </svg>
+                                用户名：
+                            </td>
+                            <td><input type="text" name="username"> </td>
+                            <td class="tips"><span>${usernameTips}</span></td>
+                        </tr>
+
+                        <tr>
+                            <td class="psw" width="200px">
+                                <svg class="smallicon" aria-hidden="true">
+                                    <use xlink:href="#icon-shouye10"></use>
+                                </svg>
+                                密&nbsp; &nbsp; 码：
+                            </td>
+                            <td><input type="password" name="password"></td>
+                            <td class="tips"><span>${passwordTips}</span> </td>
+                        </tr>
+                        <tr>
+                            <td class="code" width="200px">
+                                <svg class="smallicon" aria-hidden="true">
+                                    <use xlink:href="#icon-icon2"></use>
+                                </svg>
+                                验证码：
+                            </td>
+                            <td><input class="inputcode" type="" name="code">
+                            </td>
+                            <td><img class="codes" src="${pageContext.request.contextPath}/createCode" /></td>
+                        </tr>
+                        <tr>
+                            <td colspan="2">
+                                <!-- <button class="loginbtn" onclick="checkAdmin()">登录</button> -->
+                                <input class="loginbtn" type="submit" value="登录">
+                            </td>
+                            <td><a href="#"><button class="register">注册</button></a></td>
+                        </tr>
+                    </table>
+                </form>
+            </div>
+            <div class="item">
+                <table class="admin" align="center" border="0">
+                    <tr>
+                        <td class="name" width="200px">
+                            <svg class="smallicon" aria-hidden="true">
+                                <use xlink:href="#icon-shouye1"></use>
+                            </svg>
+                            用户名：
+                        </td>
+                        <td><input type="text" id="adminname"> </td>
+                        <td class="tips"><span id="tishiAdminname"></span></td>
+                    </tr>
+
+                    <tr>
+                        <td class="psw" width="200px">
+                            <svg class="smallicon" aria-hidden="true">
+                                <use xlink:href="#icon-shouye10"></use>
+                            </svg>
+                            密&nbsp; &nbsp; 码：
+                        </td>
+                        <td><input type="password" id="pwd"></td>
+                        <td class="tips"><span id="tishiPwd"></span> </td>
+                    </tr>
+
+                    <tr>
+                        <td colspan="3">
+                            <button class="loginbtn" onclick="checkAdmin()">登录</button>
+                            <!-- <input class="login" type="submit" value="登录" onclick="checkAdmin()"> -->
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="buttons">
+        <!-- 右侧边按钮 -->
+        <a href="index.jsp">
+            <svg class="iconbtn" aria-hidden="true">
+                <use xlink:href="#icon-shouye"></use>
+            </svg>
+        </a><br>
+        <!-- <a href="#">
+            <svg class="iconbtn" aria-hidden="true">
+                <use xlink:href="#icon-shouye1"></use>
+            </svg>
+        </a><br> -->
+        <!-- <a href="">
+            <svg class="iconbtn" aria-hidden="true">
+                <use xlink:href="#icon-shouye3"></use>
+            </svg>
+        </a>
+        <br> -->
+        <!-- <a href="#">
+            <svg class="iconbtn" aria-hidden="true">
+                <use xlink:href="#icon-shouye8"></use>
+            </svg>
+        </a><br> -->
+        <!-- <a href="#">
+            <svg class="iconbtn" aria-hidden="true">
+                <use xlink:href="#icon-shouye2"></use>
+            </svg>
+        </a>
+        <br> -->
+    </div>
+</body>
+<script>
+    // 获取元素
+    var tab_list = document.querySelector('.tab_list');
+    var lis = tab_list.querySelectorAll('li');
+    var items = document.querySelectorAll('.item');
+
+    //for循环绑定事件
+    for (var i = 0; i < lis.length; i++) {
+        lis[i].setAttribute('index', i)
+        lis[i].onclick = function () {
+            for (var i = 0; i < lis.length; i++) {
+                lis[i].className = '';
+            }
+            //只留下当前
+            this.className = 'current';
+            // 下面的模块显示
+            var index = this.getAttribute('index');
+            console.log(index);
+            //只留下当前底部框
+            for (var i = 0; i < items.length; i++) {
+                items[i].style.display = 'none';
+            }
+            items[index].style.display = 'block';
+        }
+    }
+    function checkAdmin() {
+        var adminname = document.getElementById("adminname").value;//文本框中的值，var是各种变量类型的集合
+        if (adminname == "admin") {
+            document.getElementById("tishiAdminname").innerHTML = ""
+
+        } else {
+            document.getElementById("tishiAdminname").innerHTML = "账号验证错误";
+            return;//return跳出
+        }
+
+        var pwd = document.getElementById("pwd").value;
+        if (pwd != "admin") {
+            document.getElementById("tishiPwd").innerHTML = "密码错误，请重新输入";
+            return;
+
+        }
+        window.location.href = "#";
+
+    }
+</script>
+
+</html>
