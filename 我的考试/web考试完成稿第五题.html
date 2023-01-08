@@ -32,14 +32,14 @@
 </head>
 
 <body>
-    <h3>滑动重组，单击打乱，双击切换文本，光标驱散</h3>
+    <h3>长按重组，单击打乱，双击切换文本，光标驱散</h3>
     <script>
         var T = ["铜镜画娥眉落,落烛把华发惹.惹梧桐听细说,说苦等瘦着我.我叹着残梅错,错春蝶点枝渴.渴世人别笑我,我这一纸契阔.", "我着一席巾帼,战马热引高歌.金戈断铁锁破,长城拦不了我.女儿不恨水弱,一瓢即覆海阔.君王谁浮又没,今朝我一刀过."]
         var tn = 0;
         var num = 7;
         var ballsarr = [];
         //鼠标滑动事件
-         document.body.onmousedown = document.body.ontouchmove = function () {
+         document.body.onmousedown = document.body.ontouchstart = function () {
             for (let ball of ballsarr) {
                 ball.rule();
             }
