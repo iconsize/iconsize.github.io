@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        div,
+        .reset {
+            background-color: rgba(207, 168, 245, 0.286);
+            color: #000;
+            border-radius: 50%;
+            border: 0px double rgb(120, 0, 153);
+            opacity: 0.7;
+            position: absolute;
+            transition: all 1s;
+        }
+
+        div p {
+            margin: auto;
+            padding: 10%;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <h3>长按重组，单击打乱，双击切换文本，光标驱散</h3>
+    <script>
+        var T = ["铜镜画娥眉落,落烛把华发惹.惹梧桐听细说,说苦等瘦着我.我叹着残梅错,错春蝶点枝渴.渴世人别笑我,我这一纸契阔.", "我着一席巾帼,战马热引高歌.金戈断铁锁破,长城拦不了我.女儿不恨水弱,一瓢即覆海阔.君王谁浮又没,今朝我一刀过."]
+        var tn = 0;
+        var num = 7;
+        var ballsarr = [];
+        //鼠标长按事件
+        document.body.onmousedown = function () {
+            for (let ball of ballsarr) {
+                ball.rule();
+            }
+        }
+        //鼠标单击事件
+        document.body.onclick = function () {
+            for (let ball of ballsarr) {
+                ball.rand();
+            };
+
+        }
+        //鼠标双击事件
+        document.body.ondblclick = function () {
+            console.log(6);
+            document.body.innerHTML = "";
+            //清空body标签内容
+            ballsarr = [];
+            tn == T.length - 1 ? tn = 0 : tn++;
+            for (var i = 0; i < T[tn].length; i++) {
+                var hang = i % num;
+                var lie = Math.floor(i / num);
+                var ball = new balls(hang, lie);
+                ball.createDiv(T[tn][i]);
+                ball.rand();
+                ballsarr.push(ball);
+            }
+        }
+
+        //获取页面大小，定义一个中间值r
+        var W = window.innerWidth;
+        var H = window.innerHeight;
+        document.body.style.width = W + 'px';
+        document.body.style.height = H + 'px';
+        //如果宽大，那么用高来定义每个div的大小，高大则相反。
+        if (W > H) {
+            var r = H / (num * 2);
+        } else {
+            var r = W / (num * 2);
+        }
+
+        //设置最初的文字，填入数组
+        for (var i = 0; i < T[tn].length; i++) {
+            var hang = i % num;
+            var lie = Math.floor(i / num);
+            var ball = new balls(hang, lie);
+            ball.createDiv(T[tn][i]);
+            ball.rand();
+            ballsarr.push(ball);
+        }
+
+        //构造函数
+        function balls(hang, lie) {
+            this.hang = hang;
+            this.lie = lie;
+            this.divDom = null;
+            //创建div
+            this.createDiv = function (t) {
+                var div = document.createElement('div');
+                var p = document.createElement('p');
+                p.textContent = t;
+                p.style.fontSize = r / 2 + 'px';
+                div.style.width = div.style.height = r + 'px';
+                div.style.borderWidth = r / 10 + 'px';
+                div.appendChild(p);
+                div.p = this;
+                div.onmouseover = function () {
+                    this.p.rand();
+                }
+                document.body.appendChild(div);
+                this.divDom = div;
+            };
+            //随即定位
+            this.rand = function () {
+                var randX = window.innerWidth * 0.9 * Math.random();
+                var randY = window.innerHeight * 0.8 * Math.random();
+                this.divDom.style.left = randX + 'px';
+                this.divDom.style.top = randY + 'px';
+            }
+            this.rule = function () {
+                var x = parseInt(this.hang) * r * 1.5;
+                var y = parseInt(this.lie) * r * 1.5;
+                this.divDom.style.left = x + r + "px";
+                this.divDom.style.top = y + r + 'px';
+            }
+        }
+
+
+    </script>
+
+
+</body>
+
+</html>
